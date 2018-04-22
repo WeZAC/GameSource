@@ -225,8 +225,6 @@
 				B0541CFC2047CB55002E787C /* Sources */,
 				B0541CFD2047CB55002E787C /* Frameworks */,
 				B0541CFE2047CB55002E787C /* Resources */,
-				1254B28C2209A3935CA22333 /* [CP] Embed Pods Frameworks */,
-				58423D04E4A6FCB21BFC3FB2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,8 +244,6 @@
 				B0541D072047CB55002E787C /* Sources */,
 				B0541D082047CB55002E787C /* Frameworks */,
 				B0541D092047CB55002E787C /* Resources */,
-				6AEA0FBD93805A514D334DFB /* [CP] Embed Pods Frameworks */,
-				14A7C840D08E9A258B0766C4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,36 +329,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1254B28C2209A3935CA22333 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSourceTests/Pods-GameSourceTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		14A7C840D08E9A258B0766C4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSourceUITests/Pods-GameSourceUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		35411937441FDF81EFE00D21 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,36 +359,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSource/Pods-GameSource-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		58423D04E4A6FCB21BFC3FB2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSourceTests/Pods-GameSourceTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6AEA0FBD93805A514D334DFB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSourceUITests/Pods-GameSourceUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		71F13604F06C987BB2D62D1C /* [CP] Check Pods Manifest.lock */ = {
