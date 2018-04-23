@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+import Firebase
 
 class PreferencesViewController: UIViewController {
     

@@ -24,6 +24,10 @@
 		B0C4BAAE2086AEBB00268FF4 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAAD2086AEBB00268FF4 /* NotificationsViewController.swift */; };
 		B0C4BAB02086B33500268FF4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAAF2086B33500268FF4 /* DetailsViewController.swift */; };
 		B0C4BAB22086BC2300268FF4 /* IdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAB12086BC2300268FF4 /* IdeaViewController.swift */; };
+		B0EF00D9208E780300D274A8 /* GSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00D8208E780300D274A8 /* GSUser.swift */; };
+		B0EF00DB208E7AE000D274A8 /* GSGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00DA208E7AE000D274A8 /* GSGame.swift */; };
+		B0EF00DD208E821200D274A8 /* GSPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00DC208E821200D274A8 /* GSPreference.swift */; };
+		B0EF00DF208E832000D274A8 /* GSSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00DE208E832000D274A8 /* GSSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		B0C4BAAD2086AEBB00268FF4 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		B0C4BAAF2086B33500268FF4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B0C4BAB12086BC2300268FF4 /* IdeaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaViewController.swift; sourceTree = "<group>"; };
+		B0EF00D8208E780300D274A8 /* GSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSUser.swift; sourceTree = "<group>"; };
+		B0EF00DA208E7AE000D274A8 /* GSGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSGame.swift; sourceTree = "<group>"; };
+		B0EF00DC208E821200D274A8 /* GSPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSPreference.swift; sourceTree = "<group>"; };
+		B0EF00DE208E832000D274A8 /* GSSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSSettings.swift; sourceTree = "<group>"; };
 		F392B5936827BB02C7D5ABDF /* Pods-GameSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSource.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameSource/Pods-GameSource.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +174,7 @@
 		B0541CEE2047CB55002E787C /* GameSource */ = {
 			isa = PBXGroup;
 			children = (
+				B0EF00D7208E758B00D274A8 /* Interfaces */,
 				4559FF5220859D4900BA91AD /* View Controllers */,
 				B0541CEF2047CB55002E787C /* AppDelegate.swift */,
 				B0541CF32047CB55002E787C /* Main.storyboard */,
@@ -192,6 +201,17 @@
 				B0541D112047CB55002E787C /* Info.plist */,
 			);
 			path = GameSourceUITests;
+			sourceTree = "<group>";
+		};
+		B0EF00D7208E758B00D274A8 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				B0EF00D8208E780300D274A8 /* GSUser.swift */,
+				B0EF00DA208E7AE000D274A8 /* GSGame.swift */,
+				B0EF00DC208E821200D274A8 /* GSPreference.swift */,
+				B0EF00DE208E832000D274A8 /* GSSettings.swift */,
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,11 +494,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0EF00D9208E780300D274A8 /* GSUser.swift in Sources */,
+				B0EF00DB208E7AE000D274A8 /* GSGame.swift in Sources */,
+				B0EF00DD208E821200D274A8 /* GSPreference.swift in Sources */,
 				4559FF5120859D3F00BA91AD /* LoginViewController.swift in Sources */,
 				B0541CF02047CB55002E787C /* AppDelegate.swift in Sources */,
 				4559FF5620859E0000BA91AD /* ProfileViewController.swift in Sources */,
 				B0C4BAB02086B33500268FF4 /* DetailsViewController.swift in Sources */,
 				B0C4BAB22086BC2300268FF4 /* IdeaViewController.swift in Sources */,
+				B0EF00DF208E832000D274A8 /* GSSettings.swift in Sources */,
 				4559FF5420859DA800BA91AD /* BrowseViewController.swift in Sources */,
 				45D7B944208165C6003B3F95 /* PreferencesViewController.swift in Sources */,
 				B0C4BAAE2086AEBB00268FF4 /* NotificationsViewController.swift in Sources */,
