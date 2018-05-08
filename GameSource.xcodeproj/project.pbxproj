@@ -24,10 +24,15 @@
 		B0C4BAAE2086AEBB00268FF4 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAAD2086AEBB00268FF4 /* NotificationsViewController.swift */; };
 		B0C4BAB02086B33500268FF4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAAF2086B33500268FF4 /* DetailsViewController.swift */; };
 		B0C4BAB22086BC2300268FF4 /* IdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAB12086BC2300268FF4 /* IdeaViewController.swift */; };
+		B0D4385C209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4385B209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift */; };
+		B0D4385E209E6F4700DE61D7 /* SingleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4385D209E6F4700DE61D7 /* SingleLabelTableViewCell.swift */; };
+		B0D43860209E6F5000DE61D7 /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4385F209E6F5000DE61D7 /* DoubleLabelTableViewCell.swift */; };
+		B0D43868209E731B00DE61D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0D43867209E731B00DE61D7 /* GoogleService-Info.plist */; };
 		B0EF00D9208E780300D274A8 /* GSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00D8208E780300D274A8 /* GSUser.swift */; };
 		B0EF00DB208E7AE000D274A8 /* GSGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00DA208E7AE000D274A8 /* GSGame.swift */; };
 		B0EF00DD208E821200D274A8 /* GSPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00DC208E821200D274A8 /* GSPreference.swift */; };
 		B0EF00DF208E832000D274A8 /* GSSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00DE208E832000D274A8 /* GSSettings.swift */; };
+		B0EF00E1208ECCDD00D274A8 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EF00E0208ECCDD00D274A8 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,10 +81,15 @@
 		B0C4BAAD2086AEBB00268FF4 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		B0C4BAAF2086B33500268FF4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B0C4BAB12086BC2300268FF4 /* IdeaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaViewController.swift; sourceTree = "<group>"; };
+		B0D4385B209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		B0D4385D209E6F4700DE61D7 /* SingleLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelTableViewCell.swift; sourceTree = "<group>"; };
+		B0D4385F209E6F5000DE61D7 /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
+		B0D43867209E731B00DE61D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B0EF00D8208E780300D274A8 /* GSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSUser.swift; sourceTree = "<group>"; };
 		B0EF00DA208E7AE000D274A8 /* GSGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSGame.swift; sourceTree = "<group>"; };
 		B0EF00DC208E821200D274A8 /* GSPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSPreference.swift; sourceTree = "<group>"; };
 		B0EF00DE208E832000D274A8 /* GSSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSSettings.swift; sourceTree = "<group>"; };
+		B0EF00E0208ECCDD00D274A8 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		F392B5936827BB02C7D5ABDF /* Pods-GameSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSource.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameSource/Pods-GameSource.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +184,7 @@
 		B0541CEE2047CB55002E787C /* GameSource */ = {
 			isa = PBXGroup;
 			children = (
+				B0D4385A209E6F1C00DE61D7 /* TableViewCells */,
 				B0EF00D7208E758B00D274A8 /* Interfaces */,
 				4559FF5220859D4900BA91AD /* View Controllers */,
 				B0541CEF2047CB55002E787C /* AppDelegate.swift */,
@@ -181,6 +192,7 @@
 				B0541CF62047CB55002E787C /* Assets.xcassets */,
 				B0541CF82047CB55002E787C /* LaunchScreen.storyboard */,
 				B0541CFB2047CB55002E787C /* Info.plist */,
+				B0D43867209E731B00DE61D7 /* GoogleService-Info.plist */,
 			);
 			path = GameSource;
 			sourceTree = "<group>";
@@ -203,6 +215,16 @@
 			path = GameSourceUITests;
 			sourceTree = "<group>";
 		};
+		B0D4385A209E6F1C00DE61D7 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				B0D4385B209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift */,
+				B0D4385D209E6F4700DE61D7 /* SingleLabelTableViewCell.swift */,
+				B0D4385F209E6F5000DE61D7 /* DoubleLabelTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		B0EF00D7208E758B00D274A8 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +232,7 @@
 				B0EF00DA208E7AE000D274A8 /* GSGame.swift */,
 				B0EF00DC208E821200D274A8 /* GSPreference.swift */,
 				B0EF00DE208E832000D274A8 /* GSSettings.swift */,
+				B0EF00E0208ECCDD00D274A8 /* DatabaseManager.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -245,6 +268,8 @@
 				B0541CFC2047CB55002E787C /* Sources */,
 				B0541CFD2047CB55002E787C /* Frameworks */,
 				B0541CFE2047CB55002E787C /* Resources */,
+				6D93529929545EBF07B7ABD6 /* [CP] Embed Pods Frameworks */,
+				3569050D73CE38A47E2BDB0E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,6 +289,8 @@
 				B0541D072047CB55002E787C /* Sources */,
 				B0541D082047CB55002E787C /* Frameworks */,
 				B0541D092047CB55002E787C /* Resources */,
+				D538D139FD47952267FCD36A /* [CP] Embed Pods Frameworks */,
+				E1475B5D674E8A5552EA2EED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0541CFA2047CB55002E787C /* LaunchScreen.storyboard in Resources */,
+				B0D43868209E731B00DE61D7 /* GoogleService-Info.plist in Resources */,
 				B0541CF72047CB55002E787C /* Assets.xcassets in Resources */,
 				B0541CF52047CB55002E787C /* Main.storyboard in Resources */,
 			);
@@ -381,6 +409,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSource/Pods-GameSource-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3569050D73CE38A47E2BDB0E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSourceTests/Pods-GameSourceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D93529929545EBF07B7ABD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSourceTests/Pods-GameSourceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		71F13604F06C987BB2D62D1C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +473,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D538D139FD47952267FCD36A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSourceUITests/Pods-GameSourceUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9BF34567C81E98C3BFA4AB9 /* [CP] Check Pods Manifest.lock */ = {
@@ -452,6 +525,7 @@
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -473,6 +547,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -487,6 +562,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSource/Pods-GameSource-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E1475B5D674E8A5552EA2EED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameSourceUITests/Pods-GameSourceUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -497,15 +587,19 @@
 				B0EF00D9208E780300D274A8 /* GSUser.swift in Sources */,
 				B0EF00DB208E7AE000D274A8 /* GSGame.swift in Sources */,
 				B0EF00DD208E821200D274A8 /* GSPreference.swift in Sources */,
+				B0D4385C209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift in Sources */,
 				4559FF5120859D3F00BA91AD /* LoginViewController.swift in Sources */,
 				B0541CF02047CB55002E787C /* AppDelegate.swift in Sources */,
 				4559FF5620859E0000BA91AD /* ProfileViewController.swift in Sources */,
+				B0EF00E1208ECCDD00D274A8 /* DatabaseManager.swift in Sources */,
 				B0C4BAB02086B33500268FF4 /* DetailsViewController.swift in Sources */,
 				B0C4BAB22086BC2300268FF4 /* IdeaViewController.swift in Sources */,
 				B0EF00DF208E832000D274A8 /* GSSettings.swift in Sources */,
 				4559FF5420859DA800BA91AD /* BrowseViewController.swift in Sources */,
 				45D7B944208165C6003B3F95 /* PreferencesViewController.swift in Sources */,
+				B0D43860209E6F5000DE61D7 /* DoubleLabelTableViewCell.swift in Sources */,
 				B0C4BAAE2086AEBB00268FF4 /* NotificationsViewController.swift in Sources */,
+				B0D4385E209E6F4700DE61D7 /* SingleLabelTableViewCell.swift in Sources */,
 				B0C4BAAC2086AD3500268FF4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

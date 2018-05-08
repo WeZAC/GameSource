@@ -9,6 +9,7 @@ target 'GameSource' do
   pod 'Parse'
   pod 'FirebaseUI'
   pod 'Firebase/Auth'
+  pod 'TagListView', '~> 1.0'
 
   target 'GameSourceTests' do
     inherit! :search_paths

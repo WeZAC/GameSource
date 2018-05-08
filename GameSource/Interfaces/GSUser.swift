@@ -13,12 +13,10 @@ class GSUser{
     var uid:String
     var username:String
     var pictureURL:URL?
-    var intro:String
-    var signature:String
     
     init(dictionary: [String: String]) {
         self.uid = dictionary["uid"]!
-        self.fullname = dictionary["username"] ?? ""
+        self.username = dictionary["username"] ?? ""
         guard let pictureURLString = dictionary["pictureURL"],
             let pictureURL = URL(string: pictureURLString) else { return }
         self.pictureURL = pictureURL
@@ -33,18 +31,13 @@ class GSUser{
     static func currentUser() -> GSUser{
         return GSUser(user:Auth.auth().currentUser!)
     }
-    
-    
-    extension GSUser:Equatable{
-        static func ==(lhs:GSUser,rhs:GSUser)->Bool{
-            return lhs.uid==rhs.uid
-        }
-        
-        static func ==(lhs:GSUser,rhs:User)->Bool{
-            return lhs.uid==rhs.uid
-        }
+}
+extension GSUser:Equatable{
+    static func ==(lhs:GSUser,rhs:GSUser)->Bool{
+        return lhs.uid==rhs.uid
     }
     
-    
-    
+    static func ==(lhs:GSUser,rhs:User)->Bool{
+        return lhs.uid==rhs.uid
+    }
 }

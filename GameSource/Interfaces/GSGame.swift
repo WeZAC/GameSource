@@ -16,21 +16,24 @@ class GSGame{
     var gameintro:String
     var gametext:String
     var bannerURL:URL
-    var picURL:[URL]
+    var picURL:URL
     var voted=false
-    var rating=0
+    var karma:Int
+    var rating:Int
     var owned=false
     
-    init(id:String,value:[String:Any]) {
+    init(id:String,value:[String:Any],rating:Int) {
         self.gameid=id
-        self.developers=value["developers"]
-        self.gamename=value["gamename"]
-        self.gameintro=value["gameintro"]
-        self.gametext=value["gametext"]
-        let bannerURLString=value["bannerURLString"]
-        bannerURL=URL(string: bannerURLString)
-        let picURLString=value["picURLString"]
-        picURL=URL(string:picURL)
+        self.developers=value["developers"] as! [String]
+        self.gamename=value["gamename"] as! String
+        self.gameintro=value["gameintro"] as! String
+        self.gametext=value["gametext"] as! String
+        let bannerURLString=value["bannerURLString"] as! String
+        bannerURL=URL(string: bannerURLString)!
+        let picURLString=value["picURLString"] as! String
+        picURL=URL(string:picURLString)!
+        self.karma=value["karma"] as! Int
+        self.rating=value["rating"] as! Int
     }
     
 }

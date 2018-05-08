@@ -2,10 +2,6 @@
 //  PreferencesViewController.swift
 //  GameSource
 //
-//  Created by Ruben A Gonzalez on 4/13/18.
-//  Copyright © 2018 Langtian Qin. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
@@ -24,7 +20,7 @@ class PreferencesViewController: UIViewController {
     
     /* TODO */
     @IBAction func tapAction(_ sender: Any) {
-        
+   
         // If user likeAction is not true, select it and assign true to it
         
         // else deselect it and assign false
@@ -39,7 +35,7 @@ class PreferencesViewController: UIViewController {
     }
     
     @IBAction func tapRPG(_ sender: Any) {
-        
+             performSegue(withIdentifier: "prefSegue", sender: sender)
         // If user likeRPG is not true, select it and assign true to it
         
         // else deselect it and assign false

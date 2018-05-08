@@ -13,6 +13,7 @@ class GSPreference{
     var prefdic:[String:Bool]
     
     init(value:[String:String]) {
+        prefdic=[:]
         for (spec,rating) in value{
             if rating=="true"{
                 prefdic[spec]=true

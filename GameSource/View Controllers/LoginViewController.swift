@@ -23,6 +23,9 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    }
     /*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,35 +41,38 @@ class LoginViewController: UIViewController {
     }*/
 
     
-    /*
+    
     //login function
     @IBAction func didPressLogin(_ sender: Any) {
         let email = emailTextField.text!
         let password = passwordTextField.text!
-        /*
+        
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
                 print("You've logged in! Woohoo")
+                self.performSegue(withIdentifier: "loginSegue", sender: sender)
             }
-        }*/
+        }
     }
     
     //create new user
     @IBAction func didPressSignUp(_ sender: Any) {
         let email = emailTextField.text!
         let password = passwordTextField.text!
-        /*
+        
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
                print("You've created a new account! Woohoo")
+                        self.performSegue(withIdentifier: "signupSegue", sender: sender)
             }
-        }*/
+        }
+
     }
- */
+ 
     
 
 }
