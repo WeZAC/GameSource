@@ -17,63 +17,89 @@ class PreferencesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /* TODO */
-    @IBAction func tapAction(_ sender: Any) {
-   
-        // If user likeAction is not true, select it and assign true to it
-        
-        // else deselect it and assign false
+
+    @IBAction func exitPref(_ sender: Any) {
+        performSegue(withIdentifier: "prefSegue", sender: nil)
     }
     
-    /* TODO */
-    @IBAction func tapAdventure(_ sender: Any) {
-        
-        // If user likeAdventure is not true, select it and assign true to it
-        
-        // else deselect it and assign false
+    func pressSwitch(_ sender: UISwitch) {
+        if sender.isOn == true {
+            sender.setOn(false, animated: true)
+            
+        } else {
+            sender.setOn(true, animated: true)
+        }
     }
     
-    @IBAction func tapRPG(_ sender: Any) {
-             performSegue(withIdentifier: "prefSegue", sender: sender)
-        // If user likeRPG is not true, select it and assign true to it
+    @IBAction func switchAdventure(_ sender: UISwitch) {
+        pressSwitch(sender)
         
-        // else deselect it and assign false
+        /* TODO */
+        // Change the value of the preference in the database
+        // We changed the value of sender in pressSwitch so keep
+        // that in mind
     }
     
-    @IBAction func tapHorror(_ sender: Any) {
+    @IBAction func switchAction(_ sender: UISwitch) {
+        pressSwitch(sender)
         
-        // If user likeHorror is not true, select it and assign true to it
-        
-        // else deselect it and assign false
+        /* TODO */
+        // Change the value of the preference in the database
+        // We changed the value of sender in pressSwitch so keep
+        // that in mind
     }
     
-    @IBAction func tapSport(_ sender: Any) {
+    @IBAction func switchRPG(_ sender: UISwitch) {
+        pressSwitch(sender)
         
-        // If user likeSport is not true, select it and assign true to it
-        
-        // else deselect it and assign false
+        /* TODO */
+        // Change the value of the preference in the database
+        // We changed the value of sender in pressSwitch so keep
+        // that in mind
     }
     
-    @IBAction func tapStrategy(_ sender: Any) {
+    @IBAction func switchSports(_ sender: UISwitch) {
+        pressSwitch(sender)
         
-        // If user likeStrategy is not true, select it and assign true to it
-        
-        // else deselect it and assign false
+        /* TODO */
+        // Change the value of the preference in the database
+        // We changed the value of sender in pressSwitch so keep
+        // that in mind
     }
     
-    @IBAction func tapCasual(_ sender: Any) {
+    @IBAction func switchHorror(_ sender: UISwitch) {
+        pressSwitch(sender)
         
-        // If user likeCasual is not true, select it and assign true to it
-        
-        // else deselect it and assign false
+        /* TODO */
+        // Change the value of the preference in the database
+        // We changed the value of sender in pressSwitch so keep
+        // that in mind
     }
     
-    @IBAction func tapMMO(_ sender: Any) {
+    @IBAction func switchCasual(_ sender: UISwitch) {
+        pressSwitch(sender)
         
-        // If user likeMMO is not true, select it and assign true to it
+        /* TODO */
+        // Change the value of the preference in the database
+        // We changed the value of sender in pressSwitch so keep
+        // that in mind
+    }
+    
+    @IBAction func switchStrategy(_ sender: UISwitch) {
+        pressSwitch(sender)
         
-        // else deselect it and assign false
+        /* TODO */
+        // Change the value of the preference in the database
+        // We changed the value of sender in pressSwitch so keep
+        // that in mind
+    }
+    
+    @IBAction func switchMMO(_ sender: UISwitch) {pressSwitch(sender)
+        
+        /* TODO */
+        // Change the value of the preference in the database
+        // We changed the value of sender in pressSwitch so keep
+        // that in mind
     }
     
     /*
