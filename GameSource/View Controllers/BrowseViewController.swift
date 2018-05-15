@@ -83,7 +83,15 @@ class BrowseViewController: UIViewController{
     }
     
     func updateData() -> Void{
-        posterImageView.image=imagesRef.child(curr.bannerRefString)
+        let imageRef=imagesRef.child(curr.picRefString)
+        imageRef.getData(maxSize: 10*1024*1024, completion: {
+            data,error in
+            if let error=error{
+                print(error.localizedDescription)
+            }else {
+                posterImageView.image=UIImage(data:data!)
+            }
+        })
         descLabel.text=curr.gametext
         nameLabel.text=curr.gamename
     }
