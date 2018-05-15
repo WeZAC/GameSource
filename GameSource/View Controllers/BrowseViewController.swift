@@ -9,16 +9,31 @@
 import UIKit
 import Firebase
 
-class BrowseViewController: UIViewController {
+class BrowseViewController: UIViewController{
+    
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    var curr: GSGame!
+    let gameRef=Database.database().reference(withPath: "games")
+    let imagesRef=Storage.storage().reference()
+    var curr:GSGame!
+    var potentials:[GSGame]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //curr=DatabaseManager.getGame()
+        gameRef.observe(.value, with: {snapshot in
+            var newGames: [GSGame] = []
+            for child in snapshot.children{
+                if let snapshot = child as? DataSnapshot,
+                    let game = GSGame(snapshot:snapshot){
+                    newGames.append(game)
+                }
+            }
+            if(self.curr==nil){
+                self.curr=newGames[0]
+            }
+            self.potentials.append(contentsOf: newGames)
+        })
         updateData()
-        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
@@ -45,7 +60,7 @@ class BrowseViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier=="detailsSegue"{
             let desti=segue.destination as! DetailsViewController
-            desti.curr=self.curr
+            desti.curr=curr
         }
     }
     
@@ -53,21 +68,23 @@ class BrowseViewController: UIViewController {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             print("Swipe Right")
             //DatabaseManager.likeGame(curr)
-            //curr=DatabaseManager.getGame()
+            curr=potentials[0]
+            potentials.remove(at: 0)
             updateData()
         }
         else if gesture.direction == UISwipeGestureRecognizerDirection.left {
             print("Swipe Left")
             //DatabaseManager.passGame(curr)
-            //curr=DatabaseManager.getGame()
+            curr=potentials[0]
+            potentials.remove(at: 0)
             updateData()
         }
     }
     
     func updateData() -> Void{
-        //posterImageView.image=
-        //
-        //
+        posterImageView.image=imagesRef.child(curr.bannerRefString)
+        descLabel.text=curr.gametext
+        nameLabel.text=curr.gamename
     }
 
     /*

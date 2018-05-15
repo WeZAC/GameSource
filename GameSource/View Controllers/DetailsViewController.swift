@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     var curr:GSGame!
+    let imageRef=Storage.storage().reference()
 
     @IBOutlet weak var myTableView: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -20,11 +22,11 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row==0{
             let newcell=tableView.dequeueReusableCell(withIdentifier: "GameDetailsCell", for: indexPath) as! GameDetailsTableViewCell
-            newcell.posterImageView.image=#imageLiteral(resourceName: "8bitsword.png")
-            newcell.titleLabel.text="Sword"
-            newcell.descLabel.text="Sword sword"
-            newcell.mainDevImageView.image=#imageLiteral(resourceName: "8bitghost.png")
-            newcell.mainDevLabel.text="ghost"
+            newcell.posterImageView.image=imageRef.child(curr.bannerRefString)
+            newcell.titleLabel.text=curr.gamename
+            newcell.descLabel.text=curr.gameintro
+            newcell.mainDevImageView.image=imageRef.child(curr.picRefString)
+            newcell.mainDevLabel.text=curr.developers[0]
             return newcell
         }
         else if indexPath.row==1{
@@ -35,7 +37,7 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
         else{
             let newcell=tableView.dequeueReusableCell(withIdentifier: "DoubleLabelCell", for: indexPath) as! DoubleLabelTableViewCell
             newcell.firstLabel.text="Playthrough"
-            newcell.secondLabel.text="Use a sword"
+            newcell.secondLabel.text=curr.gametext
             return newcell
         }
     }
@@ -45,6 +47,8 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let desti=segue.destination as! ProfileViewController
+        //desti.curr=curr.developer[0]
         //pass the devid on
     }
     override func viewDidLoad() {
