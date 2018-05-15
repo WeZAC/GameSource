@@ -10,7 +10,8 @@ import Foundation
 import Firebase
 
 class GSGame{
-    var gameid:DatabaseReference?
+    var gameRef:DatabaseReference?
+    var gameid:[String]
     var developers:[String]
     var gamename:String
     var gameintro:String
@@ -23,6 +24,7 @@ class GSGame{
     var owned=false
     
     init(id:String,value:[String:Any],rating:Int) {
+        self.gameid=value["gameid"] as! String
         self.developers=value["developers"] as! [String]
         self.gamename=value["gamename"] as! String
         self.gameintro=value["gameintro"] as! String
@@ -36,6 +38,7 @@ class GSGame{
     init? (snapshot: DataSnapshot){
         guard
             let value = snapshot.value as? [String:AnyObject],
+            let gameid = value["gameid"] as? String,
             let gamename = value["gamename"] as? String,
             let developers=value["developers"] as? [String],
             let gameintro=value["gameintro"] as? String,
@@ -46,7 +49,8 @@ class GSGame{
             let rating=value["rating"] as? Int else{
                 return nil
         }
-        self.gameid=snapshot.ref
+        self.gameid=gameid
+        self.gameRef=snapshot.ref
         self.gamename=gamename
         self.developers=developers
         self.gameintro=gameintro
