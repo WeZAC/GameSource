@@ -22,7 +22,7 @@ class GSUser{
         self.pictureURL = pictureURL
     }
     
-    private init(user: User) {
+    init(user: User) {
         self.uid = user.uid
         self.username = user.displayName ?? ""
         self.pictureURL = user.photoURL

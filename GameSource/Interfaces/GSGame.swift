@@ -11,7 +11,7 @@ import Firebase
 
 class GSGame{
     var gameRef:DatabaseReference?
-    var gameid:[String]
+    var gameid:String
     var developers:[String]
     var gamename:String
     var gameintro:String

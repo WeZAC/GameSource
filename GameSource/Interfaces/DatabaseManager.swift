@@ -12,23 +12,24 @@ import FirebaseAuthUI
 
 class DatabaseManager{
     
-    let databaseRef=Database.database().reference()
     
     class func rateGame(user:GSUser,game:GSGame,vote:Bool) -> Void{
+        let databaseRef=Database.database().reference()
         let prefRef=databaseRef.child("preference")
         var karma = -1
         let userPref=prefRef.child(user.uid)
         userPref.observeSingleEvent(of: .value, with: {(snapshot) in
             if(snapshot.hasChild(game.gameid)){
-                karma=value[game.gameid]
+                let value=snapshot.value as? NSDictionary
+                karma=value?[game.gameid] as! Int
             }
         })
-        if(karma==1&&!vote){
+        if(karma==1 && !vote){
             game.gameRef?.setValue(["karma":game.karma-2])
         }else if(karma==0&&vote){
             game.gameRef?.setValue(["karma":game.karma+2])
-        }else if(karma==-1){
-            var newK=vote ? game.karma+1 : game.karma-1;
+        }else if(karma+1==0){
+            let newK=vote ? game.karma+1 : game.karma-1;
             game.gameRef?.setValue(["karma":newK])
         }
     }

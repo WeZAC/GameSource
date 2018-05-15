@@ -12,7 +12,7 @@ import Firebase
 class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     var curr:GSGame!
-    let imageRef=Storage.storage().reference()
+    let imagesRef=Storage.storage().reference()
 
     @IBOutlet weak var myTableView: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,10 +22,26 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row==0{
             let newcell=tableView.dequeueReusableCell(withIdentifier: "GameDetailsCell", for: indexPath) as! GameDetailsTableViewCell
-            newcell.posterImageView.image=imageRef.child(curr.bannerRefString)
+            let imageRef=imagesRef.child(curr.picRefString)
+            imageRef.getData(maxSize: 10*1024*1024, completion: {
+                data,error in
+                if let error=error{
+                    print(error.localizedDescription)
+                }else {
+                    newcell.posterImageView.image=UIImage(data:data!)
+                }
+            })
             newcell.titleLabel.text=curr.gamename
             newcell.descLabel.text=curr.gameintro
-            newcell.mainDevImageView.image=imageRef.child(curr.picRefString)
+            let image2Ref=imagesRef.child(curr.bannerRefString)
+            imageRef.getData(maxSize: 10*1024*1024, completion: {
+                data,error in
+                if let error=error{
+                    print(error.localizedDescription)
+                }else {
+                    newcell.mainDevImageView.image=UIImage(data:data!)
+                }
+            })
             newcell.mainDevLabel.text=curr.developers[0]
             return newcell
         }
