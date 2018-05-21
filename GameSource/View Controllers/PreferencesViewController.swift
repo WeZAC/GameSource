@@ -6,10 +6,12 @@ import UIKit
 import Firebase
 
 class PreferencesViewController: UIViewController {
-    
+    let id=Auth.auth().currentUser?.uid
+    let prefRef=Database.database().reference().child("preferences")
+    var prefDic=["adventure":"n","action":"n","rpg":"n","sports":"n","horror":"n","casual":"n","strategy":"n","educational":"n"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -19,6 +21,9 @@ class PreferencesViewController: UIViewController {
     }
 
     @IBAction func exitPref(_ sender: Any) {
+        //Here is when we update the user's preference modules.
+        let userPrefRef=prefRef.child(id!)
+        userPrefRef.updateChildValues(prefDic)
         performSegue(withIdentifier: "prefSegue", sender: nil)
     }
     
@@ -33,73 +38,42 @@ class PreferencesViewController: UIViewController {
     
     @IBAction func switchAdventure(_ sender: UISwitch) {
         pressSwitch(sender)
-        
-        /* TODO */
-        // Change the value of the preference in the database
-        // We changed the value of sender in pressSwitch so keep
-        // that in mind
+        prefDic["adventure"]="y"
     }
     
     @IBAction func switchAction(_ sender: UISwitch) {
         pressSwitch(sender)
-        
-        /* TODO */
-        // Change the value of the preference in the database
-        // We changed the value of sender in pressSwitch so keep
-        // that in mind
+        prefDic["action"]="y"
     }
     
     @IBAction func switchRPG(_ sender: UISwitch) {
         pressSwitch(sender)
-        
-        /* TODO */
-        // Change the value of the preference in the database
-        // We changed the value of sender in pressSwitch so keep
-        // that in mind
+        prefDic["rpg"]="y"
     }
     
     @IBAction func switchSports(_ sender: UISwitch) {
         pressSwitch(sender)
-        
-        /* TODO */
-        // Change the value of the preference in the database
-        // We changed the value of sender in pressSwitch so keep
-        // that in mind
+        prefDic["sports"]="y"
     }
     
     @IBAction func switchHorror(_ sender: UISwitch) {
         pressSwitch(sender)
-        
-        /* TODO */
-        // Change the value of the preference in the database
-        // We changed the value of sender in pressSwitch so keep
-        // that in mind
+        prefDic["horror"]="y"
     }
     
     @IBAction func switchCasual(_ sender: UISwitch) {
         pressSwitch(sender)
-        
-        /* TODO */
-        // Change the value of the preference in the database
-        // We changed the value of sender in pressSwitch so keep
-        // that in mind
+        prefDic["casual"]="y"
     }
     
     @IBAction func switchStrategy(_ sender: UISwitch) {
         pressSwitch(sender)
-        
-        /* TODO */
-        // Change the value of the preference in the database
-        // We changed the value of sender in pressSwitch so keep
-        // that in mind
+        prefDic["strategy"]="y"
     }
     
-    @IBAction func switchMMO(_ sender: UISwitch) {pressSwitch(sender)
-        
-        /* TODO */
-        // Change the value of the preference in the database
-        // We changed the value of sender in pressSwitch so keep
-        // that in mind
+    @IBAction func switchEducational(_ sender: UISwitch) {pressSwitch(sender)
+        pressSwitch(sender)
+        prefDic["educational"]="y"
     }
     
     /*

@@ -20,6 +20,15 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if(indexPath.row==0){
+            let cell=tableView.dequeueReusableCell(withIdentifier: "GameDetailsCell",for: indexPath)
+            return cell
+        }
+        else {
+            let cell=tableView.dequeueReusableCell(withIdentifier: "SingleLabelCell",for:indexPath)
+            return cell
+        }
+        /*
         if indexPath.row==0{
             let newcell=tableView.dequeueReusableCell(withIdentifier: "GameDetailsCell", for: indexPath) as! GameDetailsTableViewCell
             let imageRef=imagesRef.child(curr.picRefString)
@@ -56,6 +65,7 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
             newcell.secondLabel.text=curr.gametext
             return newcell
         }
+ */
     }
     
     @IBAction func didTapProfile(_ sender: Any) {

@@ -14,6 +14,7 @@ class BrowseViewController: UIViewController{
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
     let gameRef=Database.database().reference(withPath: "games")
     let imagesRef=Storage.storage().reference()
     var curr:GSGame!
@@ -34,6 +35,7 @@ class BrowseViewController: UIViewController{
             self.potentials.append(contentsOf: newGames)
         })
         updateData()
+
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
@@ -67,21 +69,24 @@ class BrowseViewController: UIViewController{
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             print("Swipe Right")
+            /*
             DatabaseManager.rateGame(user: GSUser(user:Auth.auth().currentUser!), game: curr, vote: false)
             curr=potentials[0]
             potentials.remove(at: 0)
-            updateData()
+            updateData()*/
         }
         else if gesture.direction == UISwipeGestureRecognizerDirection.left {
             print("Swipe Left")
+            /*
             DatabaseManager.rateGame(user: GSUser(user:Auth.auth().currentUser!), game: curr, vote: true)
             curr=potentials[0]
             potentials.remove(at: 0)
-            updateData()
+            updateData()*/
         }
     }
     
     func updateData() -> Void{
+        
         let imageRef=imagesRef.child(curr.picRefString)
         imageRef.getData(maxSize: 10*1024*1024, completion: {
             data,error in
