@@ -691,11 +691,20 @@
                                     <action selector="addLineAction:" destination="0p7-xF-SN7" eventType="touchUpInside" id="g0o-s5-sSn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60z-Ig-WfB">
+                                <rect key="frame" x="121" y="635" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editAction:" destination="0p7-xF-SN7" eventType="touchUpInside" id="W9T-dp-Wgf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Y6R-b8-Dpk"/>
                     </view>
                     <connections>
+                        <outlet property="editButton" destination="60z-Ig-WfB" id="5yX-oo-tHe"/>
                         <outlet property="mainTableView" destination="Sus-1w-CIr" id="j9t-3z-je0"/>
                     </connections>
                 </viewController>

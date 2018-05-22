@@ -39,6 +39,7 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let imageStorageRef=Storage.storage().reference().child("images")
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mainTableView.isEditing=true
 
         vc.delegate = self
         vc.allowsEditing = true
@@ -57,6 +58,28 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBAction func didTap(_ sender: Any) {
         self.present(vc, animated: true, completion: nil)
         
+    }
+    
+    @IBOutlet weak var editButton: UIButton!
+    @IBAction func editAction(_ sender: Any) {
+        if(self.mainTableView.isEditing){
+            editButton.setTitle("Edit", for: UIControlState.normal)
+            self.mainTableView.isEditing=false
+        }
+        else{
+            editButton.setTitle("Stop", for: UIControlState.normal)
+            self.mainTableView.isEditing=true
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item=currentCells[sourceIndexPath.row]
+        currentCells.remove(at: sourceIndexPath.row)
+        currentCells.insert(item,at:destinationIndexPath.row)
     }
     
     
@@ -80,16 +103,17 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             switch currentCells[i]{
             case 0: continue
             case 1:
-                let Path1=String(i)+String(1)
+                let Path1=String(i)+"-"+String(1)
                 gameDic[Path1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as!SingleLabelEditTableViewCell).textView
             case 2:
-                let Path1=String(i)+String(1)
-                let Path2=String(i)+String(2)
+                let Path1=String(i)+"-"+String(1)
+                let Path2=String(i)+"-"+String(2)
                 gameDic[Path1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textField
                 gameDic[Path2]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textView
             default: continue
             }
         }
+        gameDic["pagedist"]=currentCells
         gameRef.setValue(gameDic)
         dismiss(animated: true, completion: nil)
     }
