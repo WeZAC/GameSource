@@ -14,6 +14,9 @@
 		4559FF5620859E0000BA91AD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4559FF5520859E0000BA91AD /* ProfileViewController.swift */; };
 		45D7B944208165C6003B3F95 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7B943208165C6003B3F95 /* PreferencesViewController.swift */; };
 		74DC25524F9BCCC597CC4710 /* Pods_GameSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 996C4EA984552C42CB6D9D5D /* Pods_GameSourceTests.framework */; };
+		B051148520B37B6E00319766 /* GameEditingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051148420B37B6E00319766 /* GameEditingTableViewCell.swift */; };
+		B051148720B3921100319766 /* SingleLabelEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051148620B3921100319766 /* SingleLabelEditTableViewCell.swift */; };
+		B051148920B3922D00319766 /* DoubleLabelEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051148820B3922D00319766 /* DoubleLabelEditTableViewCell.swift */; };
 		B0541CF02047CB55002E787C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0541CEF2047CB55002E787C /* AppDelegate.swift */; };
 		B0541CF52047CB55002E787C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0541CF32047CB55002E787C /* Main.storyboard */; };
 		B0541CF72047CB55002E787C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0541CF62047CB55002E787C /* Assets.xcassets */; };
@@ -65,6 +68,9 @@
 		8C32EEC427929BF66EF3938C /* Pods-GameSourceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSourceUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameSourceUITests/Pods-GameSourceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		996C4EA984552C42CB6D9D5D /* Pods_GameSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C761E1C6EF08BAAEBDB7A07 /* Pods-GameSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameSourceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameSourceTests/Pods-GameSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B051148420B37B6E00319766 /* GameEditingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEditingTableViewCell.swift; sourceTree = "<group>"; };
+		B051148620B3921100319766 /* SingleLabelEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLabelEditTableViewCell.swift; sourceTree = "<group>"; };
+		B051148820B3922D00319766 /* DoubleLabelEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleLabelEditTableViewCell.swift; sourceTree = "<group>"; };
 		B0541CEC2047CB55002E787C /* GameSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0541CEF2047CB55002E787C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0541CF42047CB55002E787C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -221,6 +227,9 @@
 				B0D4385B209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift */,
 				B0D4385D209E6F4700DE61D7 /* SingleLabelTableViewCell.swift */,
 				B0D4385F209E6F5000DE61D7 /* DoubleLabelTableViewCell.swift */,
+				B051148420B37B6E00319766 /* GameEditingTableViewCell.swift */,
+				B051148620B3921100319766 /* SingleLabelEditTableViewCell.swift */,
+				B051148820B3922D00319766 /* DoubleLabelEditTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -585,7 +594,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0EF00D9208E780300D274A8 /* GSUser.swift in Sources */,
+				B051148920B3922D00319766 /* DoubleLabelEditTableViewCell.swift in Sources */,
 				B0EF00DB208E7AE000D274A8 /* GSGame.swift in Sources */,
+				B051148520B37B6E00319766 /* GameEditingTableViewCell.swift in Sources */,
 				B0EF00DD208E821200D274A8 /* GSPreference.swift in Sources */,
 				B0D4385C209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift in Sources */,
 				4559FF5120859D3F00BA91AD /* LoginViewController.swift in Sources */,
@@ -597,6 +608,7 @@
 				B0EF00DF208E832000D274A8 /* GSSettings.swift in Sources */,
 				4559FF5420859DA800BA91AD /* BrowseViewController.swift in Sources */,
 				45D7B944208165C6003B3F95 /* PreferencesViewController.swift in Sources */,
+				B051148720B3921100319766 /* SingleLabelEditTableViewCell.swift in Sources */,
 				B0D43860209E6F5000DE61D7 /* DoubleLabelTableViewCell.swift in Sources */,
 				B0C4BAAE2086AEBB00268FF4 /* NotificationsViewController.swift in Sources */,
 				B0D4385E209E6F4700DE61D7 /* SingleLabelTableViewCell.swift in Sources */,
