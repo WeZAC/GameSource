@@ -36,7 +36,7 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let vc = UIImagePickerController()
     var originalImage:UIImage? = nil
     var editedImage:UIImage? = nil
-    let imageStorageRef=Storage.storage().reference().child("images")
+    let imageStorageRef=Storage.storage().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mainTableView.isEditing=true

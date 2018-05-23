@@ -529,7 +529,7 @@
                                                         <outletCollection property="gestureRecognizers" destination="GFG-h5-hmX" appends="YES" id="rpd-e9-D7Y"/>
                                                     </connections>
                                                 </imageView>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l0c-Jg-2jA">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0c-Jg-2jA">
                                                     <rect key="frame" x="15" y="163" width="28" height="28"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -539,17 +539,17 @@
                                                         <constraint firstAttribute="width" constant="28" id="iod-q6-niA"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8t-TA-MJ9" customClass="TagListView" customModule="TagListView">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8t-TA-MJ9" customClass="TagListView" customModule="TagListView">
                                                     <rect key="frame" x="15" y="280" width="328" height="46"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of your game" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLl-dw-fpV">
+                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of your game" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLl-dw-fpV">
                                                     <rect key="frame" x="15" y="125" width="328" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-Ei-nxo">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Your name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-Ei-nxo">
                                                     <rect key="frame" x="51" y="167" width="254" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="254" id="NtQ-xD-bba"/>
@@ -558,7 +558,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say something here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="StG-xN-6TA">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Say something here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="StG-xN-6TA">
                                                     <rect key="frame" x="15" y="196" width="328" height="79"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -728,6 +728,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-aS-aW0">
                                 <rect key="frame" x="16" y="65" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wgy-dB-qUA" appends="YES" id="AmH-Ew-93o"/>
+                                </connections>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="GabeN" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wno-ZJ-2cf">
                                 <rect key="frame" x="152" y="65" width="207" height="26"/>
@@ -756,28 +760,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="99V-KU-WVd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="99V-KU-WVd" customClass="DoubleLabelEditTableViewCell" customModule="GameSource" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="99V-KU-WVd" id="NgS-Oc-6xH">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="73.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Half-life 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwC-Tc-QjR">
-                                                    <rect key="frame" x="15" y="0.0" width="81" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The myth that never came out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JM-wV-6Sz">
-                                                    <rect key="frame" x="15" y="29" width="328" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -797,13 +785,43 @@
                                     <action selector="didBack:" destination="WTF-ua-Vg3" eventType="touchUpInside" id="KrE-hd-KC2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ma2-Qa-0n7">
+                                <rect key="frame" x="321" y="626" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="didAdd:" destination="WTF-ua-Vg3" eventType="touchUpInside" id="rg6-Al-Wvg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftz-VG-0wy">
+                                <rect key="frame" x="240" y="626" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="didConfirm:" destination="WTF-ua-Vg3" eventType="touchUpInside" id="X3k-ic-hA4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Xd1-zP-NN0"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="GcW-cH-c5l"/>
+                    <connections>
+                        <outlet property="addButton" destination="Ma2-Qa-0n7" id="XVz-b4-BZZ"/>
+                        <outlet property="confirmButton" destination="Ftz-VG-0wy" id="wao-U4-gjh"/>
+                        <outlet property="descTextView" destination="vRq-9d-vap" id="rKb-XP-oBl"/>
+                        <outlet property="mainImageView" destination="x8o-aS-aW0" id="83i-eL-M6f"/>
+                        <outlet property="mainTableView" destination="wau-Fm-jfF" id="QdC-wV-p7r"/>
+                        <outlet property="nameTextView" destination="Wno-ZJ-2cf" id="DTY-Ed-nag"/>
+                        <outlet property="realnameTextView" destination="H0W-3e-0ql" id="ttZ-OR-HNA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TBH-9J-O9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wgy-dB-qUA">
+                    <connections>
+                        <action selector="didTap:" destination="WTF-ua-Vg3" id="FKz-QK-sFR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2920.8000000000002" y="126.38680659670166"/>
         </scene>
@@ -936,7 +954,7 @@
         <image name="v-108-256" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PRl-yB-y2B"/>
+        <segue reference="6Xg-Gv-rgq"/>
         <segue reference="bIB-mf-iiE"/>
     </inferredMetricsTieBreakers>
 </document>

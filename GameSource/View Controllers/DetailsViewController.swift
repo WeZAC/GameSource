@@ -16,19 +16,10 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
 
     @IBOutlet weak var myTableView: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return curr.pagedist.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(indexPath.row==0){
-            let cell=tableView.dequeueReusableCell(withIdentifier: "GameDetailsCell",for: indexPath)
-            return cell
-        }
-        else {
-            let cell=tableView.dequeueReusableCell(withIdentifier: "SingleLabelCell",for:indexPath)
-            return cell
-        }
-        /*
         if indexPath.row==0{
             let newcell=tableView.dequeueReusableCell(withIdentifier: "GameDetailsCell", for: indexPath) as! GameDetailsTableViewCell
             let imageRef=imagesRef.child(curr.picRefString)
@@ -51,21 +42,25 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
                     newcell.mainDevImageView.image=UIImage(data:data!)
                 }
             })
-            newcell.mainDevLabel.text=curr.developers[0]
-            return newcell
-        }
-        else if indexPath.row==1{
-            let newcell=tableView.dequeueReusableCell(withIdentifier: "SingleLabelCell", for: indexPath) as! SingleLabelTableViewCell
-            newcell.singleLabel.text="fun"
+            newcell.mainDevLabel.text=curr.developer
             return newcell
         }
         else{
-            let newcell=tableView.dequeueReusableCell(withIdentifier: "DoubleLabelCell", for: indexPath) as! DoubleLabelTableViewCell
-            newcell.firstLabel.text="Playthrough"
-            newcell.secondLabel.text=curr.gametext
+            if(curr.pagedist[indexPath.row]==1){
+            let newcell=tableView.dequeueReusableCell(withIdentifier: "SingleLabelCell", for: indexPath) as! SingleLabelTableViewCell
+            newcell.singleLabel.text=curr.textdist[0]
+                curr.textdist.remove(at: 0)
             return newcell
+            }
+            else{
+                let newcell=tableView.dequeueReusableCell(withIdentifier: "DoubleLabelCell", for: indexPath) as! DoubleLabelTableViewCell
+                newcell.firstLabel.text=curr.textdist[0]
+                curr.textdist.remove(at: 0)
+                newcell.secondLabel.text=curr.textdist[0]
+                curr.textdist.remove(at: 0)
+                return newcell
+            }
         }
- */
     }
     
     @IBAction func didTapProfile(_ sender: Any) {
@@ -74,7 +69,8 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let desti=segue.destination as! ProfileViewController
-        //desti.curr=curr.developer[0]
+        desti.curr=curr.developer
+        desti.editable=false
         //pass the devid on
     }
     override func viewDidLoad() {

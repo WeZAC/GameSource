@@ -12,24 +12,46 @@ import Firebase
 class GSUser{
     var uid:String
     var username:String
-    var pictureURL:URL?
+    var realname:String
+    var desc:String
+    var picRefString:String
+    var textdist:[String]
     
-    init(dictionary: [String: String]) {
-        self.uid = dictionary["uid"]!
-        self.username = dictionary["username"] ?? ""
-        guard let pictureURLString = dictionary["pictureURL"],
-            let pictureURL = URL(string: pictureURLString) else { return }
-        self.pictureURL = pictureURL
+    init(dictionary: [String: Any]) {
+        self.uid = dictionary["uid"]! as! String
+        self.username = dictionary["username"]as! String
+        
+        self.desc=dictionary["desc"] as! String
+        self.textdist=dictionary["textdist"] as! [String]
+        self.realname=dictionary["realname"] as! String
+        self.picRefString=dictionary["picRefString"] as! String
     }
-    
-    init(user: User) {
-        self.uid = user.uid
-        self.username = user.displayName ?? ""
-        self.pictureURL = user.photoURL
+    init?(snapshot:DataSnapshot){
+        guard
+        let value=snapshot.value as? [String:AnyObject],
+        let uid=value["uid"] as? String,
+        let username=value["username"] as? String,
+        let realname=value["realname"] as? String,
+        let desc=value["desc"] as? String,
+        let textdist=value["textdist"] as? [String],
+        let picRefString=value["picRefString"] as? String
+            else{
+                return nil
+        }
+        self.uid=uid
+        self.username=username
+        self.realname=realname
+        self.desc=desc
+        self.textdist=textdist
+        self.picRefString=picRefString
     }
-    
-    static func currentUser() -> GSUser{
-        return GSUser(user:Auth.auth().currentUser!)
+    init(user:User) {
+        self.uid=user.uid
+        self.username=user.displayName!
+        self.realname=""
+        self.desc=""
+        self.textdist=[""]
+        self.picRefString=""
     }
 }
 extension GSUser:Equatable{

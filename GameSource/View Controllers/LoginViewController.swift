@@ -67,11 +67,16 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                print("You've created a new account! Woohoo")
+                let newUser:[String:Any]
+                newUser=["uid":Auth.auth().currentUser!.uid,"username":"","realname":"",desc:"",picRefString:"",textdist:""]
+                let updates:[String:Any]
+                 updates=[Auth.auth().currentUser?.uid:newUser]
+                Database.database().reference(withPath: "users").updateChildValues(updates)
+            }
                         self.performSegue(withIdentifier: "signupSegue", sender: sender)
             }
         }
 
-    }
  
     
 

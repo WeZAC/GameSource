@@ -69,19 +69,17 @@ class BrowseViewController: UIViewController{
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             print("Swipe Right")
-            /*
             DatabaseManager.rateGame(user: GSUser(user:Auth.auth().currentUser!), game: curr, vote: false)
             curr=potentials[0]
             potentials.remove(at: 0)
-            updateData()*/
+            updateData()
         }
         else if gesture.direction == UISwipeGestureRecognizerDirection.left {
             print("Swipe Left")
-            /*
             DatabaseManager.rateGame(user: GSUser(user:Auth.auth().currentUser!), game: curr, vote: true)
             curr=potentials[0]
             potentials.remove(at: 0)
-            updateData()*/
+            updateData()
         }
     }
     

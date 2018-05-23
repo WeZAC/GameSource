@@ -12,7 +12,7 @@ import Firebase
 class GSGame{
     var gameRef:DatabaseReference?
     var gameid:String
-    var developers:[String]
+    var developer:String
     var gamename:String
     var gameintro:String
     var gametext:String
@@ -22,10 +22,12 @@ class GSGame{
     var karma:Int
     var rating:Int
     var owned=false
+    var pagedist:[Int]
+    var textdist=[String]()
     
     init(id:String,value:[String:Any],rating:Int) {
         self.gameid=value["gameid"] as! String
-        self.developers=value["developers"] as! [String]
+        self.developer=value["developers"] as! String
         self.gamename=value["gamename"] as! String
         self.gameintro=value["gameintro"] as! String
         self.gametext=value["gametext"] as! String
@@ -33,6 +35,7 @@ class GSGame{
         self.picRefString=value["picRefString"] as! String
         self.karma=value["karma"] as! Int
         self.rating=value["rating"] as! Int
+        self.pagedist=value["pagedist"] as! [Int]
     }
     
     init? (snapshot: DataSnapshot){
@@ -40,24 +43,39 @@ class GSGame{
             let value = snapshot.value as? [String:AnyObject],
             let gameid = value["gameid"] as? String,
             let gamename = value["gamename"] as? String,
-            let developers=value["developers"] as? [String],
+            let developers=value["developers"] as? String,
             let gameintro=value["gameintro"] as? String,
             let gametext=value["gametext"] as? String,
             let bannerRefString=value["bannerRefString"] as? String,
             let picRefString=value["picRefString"] as? String,
             let karma=value["karma"] as? Int,
-            let rating=value["rating"] as? Int else{
+            let rating=value["rating"] as? Int,
+            let pagedist=value["pagedist"] as? [Int]
+            else{
                 return nil
         }
         self.gameid=gameid
         self.gameRef=snapshot.ref
         self.gamename=gamename
-        self.developers=developers
+        self.developer=developers
         self.gameintro=gameintro
         self.gametext=gametext
         self.bannerRefString=bannerRefString
         self.picRefString=picRefString
         self.karma=karma
         self.rating=rating
+        self.pagedist=pagedist
+        for i in stride(from: 0, to: pagedist.count, by: 1){
+            switch pagedist[i]{
+            case 0:continue;
+            case 1:let Path1=String(i)+"-"+String(1)
+                textdist.append(value[Path1] as! String)
+            case 2:let Path1=String(i)+"-"+String(1)
+                let Path2=String(i)+"-"+String(2)
+                textdist.append(value[Path1] as! String)
+                textdist.append(value[Path2] as! String)
+            default:continue;
+            }
+        }
     }
 }
