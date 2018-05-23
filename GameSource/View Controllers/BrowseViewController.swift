@@ -22,19 +22,24 @@ class BrowseViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         gameRef.observe(.value, with: {snapshot in
+            if(snapshot.exists()){
+                print("Great")
+            }else{print("humm")}
             var newGames: [GSGame] = []
             for child in snapshot.children{
-                if let snapshot = child as? DataSnapshot,
-                    let game = GSGame(snapshot:snapshot){
+                if let snapshot1 = child as? DataSnapshot,
+                    let game = GSGame(snapshot:snapshot1){
                     newGames.append(game)
                 }
             }
-            if(self.curr==nil){
+                print("?")
                 self.curr=newGames[0]
+            if(newGames.count>1){
+                self.potentials.append(contentsOf: newGames)
             }
-            self.potentials.append(contentsOf: newGames)
+            self.updateData()
         })
-        updateData()
+
 
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
@@ -85,7 +90,7 @@ class BrowseViewController: UIViewController{
     
     func updateData() -> Void{
         
-        let imageRef=imagesRef.child(curr.picRefString)
+       /* let imageRef=imagesRef.child(curr.picRefString)
         imageRef.getData(maxSize: 10*1024*1024, completion: {
             data,error in
             if let error=error{
@@ -93,7 +98,7 @@ class BrowseViewController: UIViewController{
             }else {
                 self.posterImageView.image=UIImage(data:data!)
             }
-        })
+        })*/
         descLabel.text=curr.gametext
         nameLabel.text=curr.gamename
     }

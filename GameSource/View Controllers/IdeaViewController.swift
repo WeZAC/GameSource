@@ -11,7 +11,7 @@ import Firebase
 
 class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return currentCells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -24,7 +24,7 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             return newcell
         }
         else{
-            let newcell=mainTableView.dequeueReusableCell(withIdentifier: "SingleLabelCell") as! SingleLabelEditTableViewCell
+            let newcell=mainTableView.dequeueReusableCell(withIdentifier: "SingleLabelEditCell") as! SingleLabelEditTableViewCell
             return newcell
         }
     }

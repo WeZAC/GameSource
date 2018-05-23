@@ -44,8 +44,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let userRef=Database.database().reference(withPath: "users").child(curr!)
         userRef.observeSingleEvent(of: .value, with: {snapshot in
             var user:GSUser
-            user=GSUser(snapshot: snapshot)
-            currUser=user
+            user=GSUser(snapshot: snapshot)!
+            self.currUser=user
         })
         if(currUser?.picRefString==""){
             self.mainImageView.image=#imageLiteral(resourceName: "8bitsword.png")
@@ -107,14 +107,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return currentCells.count/2
     }
     @IBAction func didConfirm(_ sender: Any) {
-        let newProfile:[String:Any]
+        var newProfile=[String:Any]()
         newProfile["uid"]=curr
         newProfile["username"]=nameTextView.text
         newProfile["realname"]=realnameTextView.text
         newProfile["desc"]=descTextView.text
         for i in stride(from: 0, to: currentCells.count, by: 2){
-            currentCells[i]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textField.text
-            currentCells[i+1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textLabel.text
+            currentCells[i]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textField.text!
+            currentCells[i+1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textLabel!.text!
         }
         newProfile["textdist"]=currentCells
         let picid=UUID().uuidString
@@ -122,7 +122,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let imageData=UIImagePNGRepresentation(editedImage!)
         imageRef.putData(imageData!)
         newProfile["picRefString"]=picid
-        Database.database().reference(withPath: "users").child(curr).setValue(newProfile)
+        Database.database().reference(withPath: "users").child(curr!).setValue(newProfile)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
