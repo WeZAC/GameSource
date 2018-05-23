@@ -518,16 +518,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="336.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TLO-ZN-Zoe">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8bitsword" translatesAutoresizingMaskIntoConstraints="NO" id="TLO-ZN-Zoe">
                                                     <rect key="frame" x="15" y="0.0" width="328" height="128"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="128" id="7SP-E9-hPb"/>
                                                         <constraint firstAttribute="width" constant="328" id="nbd-O3-HYN"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="GFG-h5-hmX" appends="YES" id="rpd-e9-D7Y"/>
-                                                    </connections>
                                                 </imageView>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0c-Jg-2jA">
                                                     <rect key="frame" x="15" y="163" width="28" height="28"/>
@@ -612,11 +609,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ml3-ht-CRR">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Say something..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ml3-ht-CRR">
                                                     <rect key="frame" x="15" y="0.0" width="328" height="58"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -633,14 +629,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="148.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3RL-hi-Kkk">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Part" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3RL-hi-Kkk">
                                                     <rect key="frame" x="15" y="33" width="328" height="115"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="115" id="sBb-8e-Fjn"/>
                                                         <constraint firstAttribute="width" constant="328" id="wu5-qI-E91"/>
                                                     </constraints>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -698,12 +693,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Line"/>
                                 <connections>
-                                    <action selector="addCellAction:" destination="0p7-xF-SN7" eventType="touchUpInside" id="XEr-lH-tzO"/>
                                     <action selector="addLineAction:" destination="0p7-xF-SN7" eventType="touchUpInside" id="g0o-s5-sSn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60z-Ig-WfB">
-                                <rect key="frame" x="121" y="635" width="30" height="30"/>
+                                <rect key="frame" x="102" y="635" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
@@ -720,11 +714,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00T-DV-def" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="GFG-h5-hmX">
-                    <connections>
-                        <action selector="didTap:" destination="0p7-xF-SN7" id="WIK-e3-U4l"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2624.8000000000002" y="828.93553223388312"/>
         </scene>

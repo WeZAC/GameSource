@@ -17,14 +17,17 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.row==0){
             let newcell=mainTableView.dequeueReusableCell(withIdentifier: "GameEditingCell") as! GameEditingTableViewCell
+            newcell.posterImageView.isUserInteractionEnabled=true
+            var tapG=UITapGestureRecognizer(target: self, action: #selector(IdeaViewController.didTap(_:)))
+            newcell.posterImageView.addGestureRecognizer(tapG)
             return newcell
         }
         else if(currentCells[indexPath.row]==1){
-            let newcell=mainTableView.dequeueReusableCell(withIdentifier: "DoubleLabelEditCell") as! DoubleLabelEditTableViewCell
+            let newcell=mainTableView.dequeueReusableCell(withIdentifier: "SingleLabelEditCell") as! SingleLabelEditTableViewCell
             return newcell
         }
         else{
-            let newcell=mainTableView.dequeueReusableCell(withIdentifier: "SingleLabelEditCell") as! SingleLabelEditTableViewCell
+            let newcell=mainTableView.dequeueReusableCell(withIdentifier: "DoubleLabelEditCell") as! DoubleLabelEditTableViewCell
             return newcell
         }
     }
@@ -40,7 +43,6 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mainTableView.isEditing=true
-
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
@@ -57,7 +59,7 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     @IBAction func didTap(_ sender: Any) {
         self.present(vc, animated: true, completion: nil)
-        
+        print("?")
     }
     
     @IBOutlet weak var editButton: UIButton!
@@ -70,6 +72,14 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             editButton.setTitle("Stop", for: UIControlState.normal)
             self.mainTableView.isEditing=true
         }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row==0 ? false : true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return indexPath.row==0 ? .none : .delete
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -104,12 +114,12 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             case 0: continue
             case 1:
                 let Path1=String(i)+"-"+String(1)
-                gameDic[Path1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as!SingleLabelEditTableViewCell).textView
+                gameDic[Path1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as!SingleLabelEditTableViewCell).textView.text
             case 2:
                 let Path1=String(i)+"-"+String(1)
                 let Path2=String(i)+"-"+String(2)
-                gameDic[Path1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textField
-                gameDic[Path2]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textView
+                gameDic[Path1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textField.text
+                gameDic[Path2]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textView.text
             default: continue
             }
         }
