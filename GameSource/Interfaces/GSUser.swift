@@ -47,7 +47,7 @@ class GSUser{
     }
     init(user:User) {
         self.uid=user.uid
-        self.username=user.displayName!
+        self.username=user.displayName ?? ""
         self.realname=""
         self.desc=""
         self.textdist=[""]

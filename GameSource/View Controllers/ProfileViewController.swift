@@ -46,31 +46,69 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             var user:GSUser
             user=GSUser(snapshot: snapshot)!
             self.currUser=user
-        })
-        if(currUser?.picRefString==""){
-            self.mainImageView.image=#imageLiteral(resourceName: "8bitsword.png")
-        }
-        else{
-        let imageRef=Storage.storage().reference().child(curr!)
-        imageRef.getData(maxSize: 10*1024*1024, completion: {data,error in
-            if let error=error{
-                print(error.localizedDescription)
+            if(self.currUser?.picRefString==""){
+                self.mainImageView.image=#imageLiteral(resourceName: "download (6)")
             }
             else{
-                self.mainImageView.image=UIImage(data:data!)
+                let imageRef=Storage.storage().reference().child(self.curr!)
+                imageRef.getData(maxSize: 10*1024*1024, completion: {data,error in
+                    if let error=error{
+                        print(error.localizedDescription)
+                    }
+                    else{
+                        self.mainImageView.image=UIImage(data:data!)
+                    }
+                })
+            }
+            if(self.currUser?.desc==""&&self.editable){
+                self.descTextView.text="Say something about yourself..."
+                self.descTextView.textColor=UIColor.lightGray
+            }else if(self.currUser?.desc==""){
+                self.descTextView.text="This user hasn't made a profile description yet."
+            }else{
+                self.descTextView.text=self.currUser?.desc
+            }
+            if(self.currUser?.realname==""&&self.editable){
+                self.realnameTextView.text="Your name in real life... or in game"
+                self.realnameTextView.textColor=UIColor.lightGray
+            }else if(self.currUser?.realname==""){
+                self.realnameTextView.text="This user hasn't revealed this real name."
+            }else{
+                self.realnameTextView.text=self.currUser?.realname
+            }
+            if(self.currUser?.username==""&&self.editable){
+                self.nameTextView.text="Choose a username for yourself! Can be changed anytime"
+                self.nameTextView.textColor=UIColor.lightGray
+            }else if(self.currUser?.username==""){
+                self.nameTextView.text="User-"+(self.currUser?.uid)!
+            }else{
+                self.nameTextView.text=self.currUser?.username
             }
         })
-        }
-        descTextView.text=currUser?.desc
-        realnameTextView.text=currUser?.realname
-        nameTextView.text=currUser?.username
+        
+        let tapG=UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
+        mainImageView.addGestureRecognizer(tapG)
         
         mainTableView.delegate=self
         mainTableView.dataSource=self
         mainTableView.reloadData()
+        realnameTextView.delegate=self
+        nameTextView.delegate=self
+        descTextView.delegate=self
         // Do any additional setup after loading the view.
     }
-    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if(textView.textColor==UIColor.lightGray){
+            textView.text=nil
+            textView.textColor=UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text="Did you mean to put something?"
+            textView.textColor=UIColor.lightGray
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -114,7 +152,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         newProfile["desc"]=descTextView.text
         for i in stride(from: 0, to: currentCells.count, by: 2){
             currentCells[i]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textField.text!
-            currentCells[i+1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textLabel!.text!
+            currentCells[i+1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textView!.text!
         }
         newProfile["textdist"]=currentCells
         let picid=UUID().uuidString
