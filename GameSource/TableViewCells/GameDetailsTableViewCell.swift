@@ -20,9 +20,6 @@ class GameDetailsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        mainTagView.addTag("Card Game")
-        mainTagView.addTag("Strategy")
-        mainTagView.addTag("Collection")
         // Initialization code
     }
 
