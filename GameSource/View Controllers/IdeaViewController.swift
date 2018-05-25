@@ -39,11 +39,25 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         else if(currentCells[indexPath.row]==1){
             let newcell=mainTableView.dequeueReusableCell(withIdentifier: "SingleLabelEditCell") as! SingleLabelEditTableViewCell
+            newcell.textView.text="Write something here..."
+            newcell.textView.textColor=UIColor.lightGray
+            newcell.textView.delegate=self
             return newcell
         }
         else{
             let newcell=mainTableView.dequeueReusableCell(withIdentifier: "DoubleLabelEditCell") as! DoubleLabelEditTableViewCell
+            newcell.textField.placeholder="Section title"
+            newcell.textView.text="Write something here..."
+            newcell.textView.textColor=UIColor.lightGray
+            newcell.textView.delegate=self
             return newcell
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if(textView.textColor==UIColor.lightGray){
+            textView.text=nil
+            textView.textColor=UIColor.black
         }
     }
     
