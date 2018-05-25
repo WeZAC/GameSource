@@ -658,7 +658,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="textField" destination="yNT-nC-sPT" id="G8H-xQ-ra5"/>
-                                            <outlet property="textLabel" destination="yNT-nC-sPT" id="5f1-3f-AXl"/>
                                             <outlet property="textView" destination="3RL-hi-Kkk" id="hvK-CJ-90B"/>
                                         </connections>
                                     </tableViewCell>

@@ -38,6 +38,7 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             return newcell
         }
         else if(currentCells[indexPath.row]==1){
+            print("got inside")
             let newcell=mainTableView.dequeueReusableCell(withIdentifier: "SingleLabelEditCell") as! SingleLabelEditTableViewCell
             newcell.textView.text="Write something here..."
             newcell.textView.textColor=UIColor.lightGray
@@ -60,6 +61,12 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             textView.textColor=UIColor.black
         }
     }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text="Did you mean to put something?"
+            textView.textColor=UIColor.lightGray
+        }
+    }
     
     @IBOutlet weak var mainTableView: UITableView!
     
@@ -73,7 +80,7 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let imageStorageRef=Storage.storage().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mainTableView.isEditing=true
+        self.mainTableView.isEditing=false
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
