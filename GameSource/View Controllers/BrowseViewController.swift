@@ -92,7 +92,7 @@ class BrowseViewController: UIViewController{
     
     func updateData() -> Void{
         
-       /* let imageRef=imagesRef.child(curr.picRefString)
+       let imageRef=imagesRef.child(curr.picRefString)
         imageRef.getData(maxSize: 10*1024*1024, completion: {
             data,error in
             if let error=error{
@@ -100,7 +100,7 @@ class BrowseViewController: UIViewController{
             }else {
                 self.posterImageView.image=UIImage(data:data!)
             }
-        })*/
+        })
         descLabel.text=curr.gameintro
         nameLabel.text=curr.gamename
     }
