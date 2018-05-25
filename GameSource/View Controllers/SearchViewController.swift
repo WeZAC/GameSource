@@ -15,6 +15,7 @@ class SearchViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet weak var mainTableView: UITableView!
     var isSearching=false
     var matching=[GSGame]()
+    var seguing:GSGame!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +67,16 @@ class SearchViewController: UIViewController,UITableViewDelegate,UITableViewData
         newcell.nameLabel.text=thisgame.gamename
         newcell.descLabel.text=thisgame.gameintro
         return newcell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        seguing=matching[indexPath.row]
+        performSegue(withIdentifier: "searchSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let desti=segue.destination as! DetailsViewController
+        desti.curr=seguing
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

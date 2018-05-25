@@ -1002,6 +1002,7 @@
                     <connections>
                         <outlet property="mainTableView" destination="Mhf-la-azR" id="1m5-iN-g84"/>
                         <outlet property="searchBar" destination="lck-pO-dO7" id="5o8-cd-kMl"/>
+                        <segue destination="rKF-FY-pzb" kind="show" identifier="searchSegue" id="H9v-iZ-DbK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suR-z8-LyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1020,5 +1021,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="PRl-yB-y2B"/>
         <segue reference="bIB-mf-iiE"/>
+        <segue reference="H9v-iZ-DbK"/>
     </inferredMetricsTieBreakers>
 </document>
