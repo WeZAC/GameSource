@@ -21,6 +21,7 @@ class BrowseViewController: UIViewController{
     var potentials:[GSGame]!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         gameRef.observe(.value, with: {snapshot in
             if(snapshot.exists()){
                 print("Great")

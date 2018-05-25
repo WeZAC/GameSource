@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var descTextView: UITextView!
     
 
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var mainTableView: UITableView!
