@@ -26,7 +26,7 @@
 		B0541D052047CB55002E787C /* GameSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0541D042047CB55002E787C /* GameSourceTests.swift */; };
 		B0541D102047CB55002E787C /* GameSourceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0541D0F2047CB55002E787C /* GameSourceUITests.swift */; };
 		B0C4BAAC2086AD3500268FF4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAAB2086AD3500268FF4 /* SettingsViewController.swift */; };
-		B0C4BAAE2086AEBB00268FF4 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAAD2086AEBB00268FF4 /* NotificationsViewController.swift */; };
+		B0C4BAAE2086AEBB00268FF4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAAD2086AEBB00268FF4 /* SearchViewController.swift */; };
 		B0C4BAB02086B33500268FF4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAAF2086B33500268FF4 /* DetailsViewController.swift */; };
 		B0C4BAB22086BC2300268FF4 /* IdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4BAB12086BC2300268FF4 /* IdeaViewController.swift */; };
 		B0D4385C209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4385B209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift */; };
@@ -88,7 +88,7 @@
 		B0541D0F2047CB55002E787C /* GameSourceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSourceUITests.swift; sourceTree = "<group>"; };
 		B0541D112047CB55002E787C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0C4BAAB2086AD3500268FF4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		B0C4BAAD2086AEBB00268FF4 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		B0C4BAAD2086AEBB00268FF4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B0C4BAAF2086B33500268FF4 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B0C4BAB12086BC2300268FF4 /* IdeaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaViewController.swift; sourceTree = "<group>"; };
 		B0D4385B209E6F3C00DE61D7 /* GameDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				4559FF5020859D3F00BA91AD /* LoginViewController.swift */,
 				4559FF5320859DA800BA91AD /* BrowseViewController.swift */,
 				4559FF5520859E0000BA91AD /* ProfileViewController.swift */,
-				B0C4BAAD2086AEBB00268FF4 /* NotificationsViewController.swift */,
+				B0C4BAAD2086AEBB00268FF4 /* SearchViewController.swift */,
 				B0C4BAAF2086B33500268FF4 /* DetailsViewController.swift */,
 				B0C4BAB12086BC2300268FF4 /* IdeaViewController.swift */,
 			);
@@ -618,7 +618,7 @@
 				45D7B944208165C6003B3F95 /* PreferencesViewController.swift in Sources */,
 				B051148720B3921100319766 /* SingleLabelEditTableViewCell.swift in Sources */,
 				B0D43860209E6F5000DE61D7 /* DoubleLabelTableViewCell.swift in Sources */,
-				B0C4BAAE2086AEBB00268FF4 /* NotificationsViewController.swift in Sources */,
+				B0C4BAAE2086AEBB00268FF4 /* SearchViewController.swift in Sources */,
 				B0D4385E209E6F4700DE61D7 /* SingleLabelTableViewCell.swift in Sources */,
 				B0C4BAAC2086AD3500268FF4 /* SettingsViewController.swift in Sources */,
 			);
