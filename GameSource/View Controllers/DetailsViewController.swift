@@ -43,6 +43,9 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
                 }
             })
             newcell.mainDevLabel.text=curr.developer
+            for i in curr.tagdist{
+                newcell.mainTagView.addTag(i)
+            }
             return newcell
         }
         else{

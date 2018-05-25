@@ -24,6 +24,7 @@ class GSGame{
     var owned=false
     var pagedist:[Int]
     var textdist=[String]()
+    var tagdist=[String]()
     
     init(id:String,value:[String:Any],rating:Int) {
         self.gameid=value["gameid"] as! String
@@ -36,6 +37,7 @@ class GSGame{
         self.karma=value["karma"] as! Int
         self.rating=value["rating"] as! Int
         self.pagedist=value["pagedist"] as! [Int]
+        self.tagdist=value["tagdist"]as![String]
     }
     
     init? (snapshot: DataSnapshot){
@@ -50,7 +52,8 @@ class GSGame{
             let picRefString=value["picRefString"] as? String,
             let karma=value["karma"] as? Int,
             let rating=value["rating"] as? Int,
-            let pagedist=value["pagedist"] as? [Int]
+            let pagedist=value["pagedist"] as? [Int],
+            let tagdist=value["tagdist"] as? [String]
             else{
                 return nil
         }
@@ -65,6 +68,7 @@ class GSGame{
         self.karma=karma
         self.rating=rating
         self.pagedist=pagedist
+        self.tagdist=tagdist
         for i in stride(from: 0, to: pagedist.count, by: 1){
             switch pagedist[i]{
             case 0:continue;

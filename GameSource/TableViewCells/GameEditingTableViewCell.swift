@@ -11,19 +11,17 @@ import TagListView
 
 class GameEditingTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var tagListView: TagListView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var mainDevImageView: UIImageView!
     
     @IBOutlet weak var mainDevLabel: UILabel!
     @IBOutlet weak var descView: UITextView!
-    @IBOutlet var mainTagView: TagListView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        mainTagView.addTag("Card Game")
-        mainTagView.addTag("Strategy")
-        mainTagView.addTag("Collection")
+        
         // Initialization code
     }
     

@@ -8,10 +8,25 @@
 
 import UIKit
 import Firebase
+import TagListView
 
 class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentCells.count
+    }
+    
+    @IBAction func didAddTag(_ sender: Any) {
+        let alert=UIAlertController(title: "Add Tag", message: "Please enter a tag for your game. Only default tags would be considered in pushing out to users.", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: {(textField) in
+            textField.text=""
+        })
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(textField?.text)")
+            let taggedCell=self.mainTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! GameEditingTableViewCell
+            taggedCell.tagListView.addTag((textField?.text)!)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,6 +49,8 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBOutlet weak var mainTableView: UITableView!
     
+
+    @IBOutlet weak var tagListView: TagListView!
     var gameDic=[String:Any]()
     var currentCells=[0]
     let vc = UIImagePickerController()
@@ -124,6 +141,11 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
         }
         gameDic["pagedist"]=currentCells
+        var tagdist = [String]()
+        for i in (mainTableView.cellForRow(at: IndexPath(row: 0, section: 0))as!GameEditingTableViewCell).tagListView.tagViews{
+            tagdist.append(i.currentTitle!)
+        }
+        gameDic["tagdist"]=tagdist
         gameRef.setValue(gameDic)
         dismiss(animated: true, completion: nil)
     }
