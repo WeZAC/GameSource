@@ -118,11 +118,13 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let mainCell=mainTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! GameEditingTableViewCell
         gameDic["gamename"]=mainCell.titleField.text
         gameDic["gameintro"]=mainCell.descView.text
+        if let im=editedImage{
         let picid=UUID().uuidString
         let imageRef=Storage.storage().reference().child(picid)
         let imageData=UIImagePNGRepresentation(editedImage!)
         imageRef.putData(imageData!)
         gameDic["picRefString"]=picid
+        }else {gameDic["picRefString"]=""}
         gameDic["karma"]=0
         gameDic["rating"]=0
         let gameRef=Database.database().reference().child("games").child(uuid)

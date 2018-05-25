@@ -84,6 +84,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }else{
                 self.nameTextView.text=self.currUser?.username
             }
+            
+            for text in (self.currUser?.textdist)!{
+                self.currentCells.append(text)
+            }
+            self.mainTableView.reloadData()
         })
         
         let tapG=UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
@@ -131,6 +136,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     @IBAction func didAdd(_ sender: Any) {
+        for i in stride(from: 0, to: mainTableView.visibleCells.count, by: 1) {
+            if let cell=mainTableView.cellForRow(at: IndexPath(row: i, section: 0)) as? DoubleLabelEditTableViewCell{
+                currentCells[2*i]=cell.textField.text!
+                currentCells[2*i+1]=cell.textView.text
+            }
+        }
         currentCells.append("")
         currentCells.append("")
         mainTableView.reloadData()
@@ -151,8 +162,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
         newProfile["realname"]=realnameTextView.text
         newProfile["desc"]=descTextView.text
         for i in stride(from: 0, to: currentCells.count, by: 2){
-            currentCells[i]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textField.text!
-            currentCells[i+1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textView!.text!
+            currentCells[i]=(mainTableView.cellForRow(at: IndexPath(row: i/2, section: 0))as! DoubleLabelEditTableViewCell).textField.text!
+            currentCells[i+1]=(mainTableView.cellForRow(at: IndexPath(row: i/2, section: 0))as! DoubleLabelEditTableViewCell).textView!.text!
         }
         newProfile["textdist"]=currentCells
         if let im=editedImage{
@@ -161,7 +172,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             let imageData=UIImagePNGRepresentation(editedImage!)
             imageRef.putData(imageData!)
             newProfile["picRefString"]=picid}
+        else{newProfile["picRefString"]=""}
         Database.database().reference(withPath: "users").child(curr!).setValue(newProfile)
+        //dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -22,6 +22,7 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row==0{
             let newcell=tableView.dequeueReusableCell(withIdentifier: "GameDetailsCell", for: indexPath) as! GameDetailsTableViewCell
+            newcell.mainDevImageView.image=#imageLiteral(resourceName: "download (6)")
             let imageRef=imagesRef.child(curr.picRefString)
             imageRef.getData(maxSize: 10*1024*1024, completion: {
                 data,error in
@@ -33,8 +34,8 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
             })
             newcell.titleLabel.text=curr.gamename
             newcell.descLabel.text=curr.gameintro
-            let image2Ref=imagesRef.child(curr.bannerRefString)
-            imageRef.getData(maxSize: 10*1024*1024, completion: {
+            let image2Ref=imagesRef.child(curr.developer)
+            image2Ref.getData(maxSize: 10*1024*1024, completion: {
                 data,error in
                 if let error=error{
                     print(error.localizedDescription)
@@ -42,7 +43,13 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
                     newcell.mainDevImageView.image=UIImage(data:data!)
                 }
             })
-            newcell.mainDevLabel.text=curr.developer
+            let devRef=Database.database().reference(withPath: "users").child(curr.developer)
+            devRef.observeSingleEvent(of: .value, with: {snapshot in
+                var user:GSUser
+                user=GSUser(snapshot:snapshot)!
+                newcell.mainDevLabel.text=user.username=="" ? self.curr.developer : user.username
+            })
+            
             for i in curr.tagdist{
                 newcell.mainTagView.addTag(i)
             }

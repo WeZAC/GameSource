@@ -26,9 +26,11 @@ class BrowseViewController: UIViewController{
                 print("Great")
             }else{print("humm")}
             var newGames: [GSGame] = []
+            
             for child in snapshot.children{
                 if let snapshot1 = child as? DataSnapshot,
                     let game = GSGame(snapshot:snapshot1){
+                    print("ok")
                     newGames.append(game)
                 }
             }
@@ -99,7 +101,7 @@ class BrowseViewController: UIViewController{
                 self.posterImageView.image=UIImage(data:data!)
             }
         })*/
-        descLabel.text=curr.gametext
+        descLabel.text=curr.gameintro
         nameLabel.text=curr.gamename
     }
 

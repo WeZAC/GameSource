@@ -15,8 +15,6 @@ class GSGame{
     var developer:String
     var gamename:String
     var gameintro:String
-    var gametext:String
-    var bannerRefString:String
     var picRefString:String
     var voted=false
     var karma:Int
@@ -31,8 +29,6 @@ class GSGame{
         self.developer=value["developers"] as! String
         self.gamename=value["gamename"] as! String
         self.gameintro=value["gameintro"] as! String
-        self.gametext=value["gametext"] as! String
-        self.bannerRefString=value["bannerRefString"] as! String
         self.picRefString=value["picRefString"] as! String
         self.karma=value["karma"] as! Int
         self.rating=value["rating"] as! Int
@@ -47,8 +43,6 @@ class GSGame{
             let gamename = value["gamename"] as? String,
             let developers=value["developers"] as? String,
             let gameintro=value["gameintro"] as? String,
-            let gametext=value["gametext"] as? String,
-            let bannerRefString=value["bannerRefString"] as? String,
             let picRefString=value["picRefString"] as? String,
             let karma=value["karma"] as? Int,
             let rating=value["rating"] as? Int,
@@ -62,8 +56,6 @@ class GSGame{
         self.gamename=gamename
         self.developer=developers
         self.gameintro=gameintro
-        self.gametext=gametext
-        self.bannerRefString=bannerRefString
         self.picRefString=picRefString
         self.karma=karma
         self.rating=rating
