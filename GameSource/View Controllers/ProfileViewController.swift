@@ -155,11 +155,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             currentCells[i+1]=(mainTableView.cellForRow(at: IndexPath(row: i, section: 0))as! DoubleLabelEditTableViewCell).textView!.text!
         }
         newProfile["textdist"]=currentCells
-        let picid=UUID().uuidString
-        let imageRef=Storage.storage().reference().child(picid)
-        let imageData=UIImagePNGRepresentation(editedImage!)
-        imageRef.putData(imageData!)
-        newProfile["picRefString"]=picid
+        if let im=editedImage{
+            let picid=UUID().uuidString
+            let imageRef=Storage.storage().reference().child(picid)
+            let imageData=UIImagePNGRepresentation(editedImage!)
+            imageRef.putData(imageData!)
+            newProfile["picRefString"]=picid}
         Database.database().reference(withPath: "users").child(curr!).setValue(newProfile)
     }
     

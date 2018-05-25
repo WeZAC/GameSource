@@ -65,6 +65,10 @@ class LoginViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
+                let alert=UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                }))
+                self.present(alert, animated: true, completion: nil)
             } else {
                print("You've created a new account! Woohoo")
                 let newUser:[String:Any]
@@ -72,8 +76,8 @@ class LoginViewController: UIViewController {
                 let updates:[String:Any]
                 updates=[(Auth.auth().currentUser?.uid)!:newUser]
                 Database.database().reference(withPath: "users").updateChildValues(updates)
+                self.performSegue(withIdentifier: "signupSegue", sender: sender)
             }
-                        self.performSegue(withIdentifier: "signupSegue", sender: sender)
             }
         }
 
