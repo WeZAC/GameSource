@@ -143,7 +143,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="switchEducational:" destination="NZM-P7-l42" eventType="valueChanged" id="DDZ-SX-HLW"/>
-                                    <action selector="switchMMO:" destination="NZM-P7-l42" eventType="valueChanged" id="4xE-Xc-arA"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adventure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6A5-R1-1qU">
