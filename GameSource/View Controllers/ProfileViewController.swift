@@ -30,6 +30,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var editedImage:UIImage? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
         if(editable){
             curr=Auth.auth().currentUser?.uid
             vc.delegate = self
@@ -108,6 +110,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             textView.text=nil
             textView.textColor=UIColor.black
         }
+    }
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {

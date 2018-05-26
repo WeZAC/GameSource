@@ -24,6 +24,8 @@ class SearchViewController: UIViewController,UITableViewDelegate,UITableViewData
         searchBar.delegate=self
         searchBar.returnKeyType=UIReturnKeyType.done
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
     }
 
@@ -47,6 +49,9 @@ class SearchViewController: UIViewController,UITableViewDelegate,UITableViewData
             self.matching=mgames
             self.mainTableView.reloadData()
         })
+    }
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        searchBar.resignFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

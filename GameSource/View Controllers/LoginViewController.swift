@@ -20,11 +20,18 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
     }
     /*
     override func viewWillAppear(_ animated: Bool) {

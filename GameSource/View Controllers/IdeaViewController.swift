@@ -29,6 +29,10 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.present(alert, animated: true, completion: nil)
     }
     
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.row==0){
             let newcell=mainTableView.dequeueReusableCell(withIdentifier: "GameEditingCell") as! GameEditingTableViewCell
@@ -86,6 +90,8 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let imageStorageRef=Storage.storage().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
         self.mainTableView.isEditing=false
         vc.delegate = self
         vc.allowsEditing = true
