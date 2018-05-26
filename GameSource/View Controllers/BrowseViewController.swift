@@ -142,6 +142,9 @@ class BrowseViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didLog(_ sender: Any) {
+        performSegue(withIdentifier: "logoutSegue", sender: self)
+    }
     @IBAction func didTapPicture(_ sender: Any) {
         performSegue(withIdentifier: "detailsSegue", sender: sender)
     }

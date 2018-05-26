@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var titleLabel: UILabel!
     //outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,7 +20,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

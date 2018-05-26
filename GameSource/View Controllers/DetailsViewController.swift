@@ -12,6 +12,7 @@ import Firebase
 class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     var curr:GSGame!
+    var currrow=0
     let imagesRef=Storage.storage().reference()
 
     @IBOutlet weak var myTableView: UITableView!
@@ -56,19 +57,23 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
             return newcell
         }
         else{
-            if(curr.pagedist[indexPath.row]==1){
-            let newcell=tableView.dequeueReusableCell(withIdentifier: "SingleLabelCell", for: indexPath) as! SingleLabelTableViewCell
-            newcell.singleLabel.text=curr.textdist[0]
-                curr.textdist.remove(at: 0)
-            return newcell
+            if(currrow<curr.textdist.count){
+                if(curr.pagedist[indexPath.row]==1){
+                    let newcell=tableView.dequeueReusableCell(withIdentifier: "SingleLabelCell", for: indexPath) as! SingleLabelTableViewCell
+                    newcell.singleLabel.text=curr.textdist[currrow]
+               currrow=currrow+1
+                    return newcell
+                }
+                else{
+                    let newcell=tableView.dequeueReusableCell(withIdentifier: "DoubleLabelCell", for: indexPath) as! DoubleLabelTableViewCell
+                    newcell.firstLabel.text=curr.textdist[currrow]
+                    newcell.secondLabel.text=curr.textdist[currrow+1]
+                    currrow=currrow+2
+                    return newcell
+                }
             }
             else{
-                let newcell=tableView.dequeueReusableCell(withIdentifier: "DoubleLabelCell", for: indexPath) as! DoubleLabelTableViewCell
-                newcell.firstLabel.text=curr.textdist[0]
-                curr.textdist.remove(at: 0)
-                newcell.secondLabel.text=curr.textdist[0]
-                curr.textdist.remove(at: 0)
-                return newcell
+                return UITableViewCell()
             }
         }
     }
@@ -89,6 +94,7 @@ class DetailsViewController: UIViewController,UITableViewDataSource,UITableViewD
         myTableView.dataSource=self
         myTableView.rowHeight=UITableViewAutomaticDimension
         myTableView.estimatedRowHeight=400
+        currrow=0
         myTableView.reloadData()
         
         // Do any additional setup after loading the view.
