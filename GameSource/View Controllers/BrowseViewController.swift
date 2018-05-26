@@ -18,7 +18,7 @@ class BrowseViewController: UIViewController{
     let gameRef=Database.database().reference(withPath: "games")
     let imagesRef=Storage.storage().reference()
     var curr:GSGame!
-    var potentials:[GSGame]!
+    var potentials=[GSGame]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,8 +37,20 @@ class BrowseViewController: UIViewController{
             }
                 print("?")
                 self.curr=newGames[0]
-            if(newGames.count>1){
-                self.potentials.append(contentsOf: newGames)
+            newGames.remove(at: 0)
+            if(newGames.count>0){
+                for i in newGames{
+                    var contained=false;
+                    for j in self.potentials{
+                        if(i.gameid==j.gameid){
+                            contained=true;
+                            break;
+                        }
+                    }
+                    if(!contained){
+                        self.potentials.append(i)
+                    }
+                }
             }
             self.updateData()
         })

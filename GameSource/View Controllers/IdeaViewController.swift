@@ -35,6 +35,12 @@ class IdeaViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             newcell.posterImageView.isUserInteractionEnabled=true
             var tapG=UITapGestureRecognizer(target: self, action: #selector(IdeaViewController.didTap(_:)))
             newcell.posterImageView.addGestureRecognizer(tapG)
+            let userRef=Database.database().reference(withPath: "users").child((Auth.auth().currentUser?.uid)!)
+            userRef.observeSingleEvent(of: .value, with: {snapshot in
+                var user:GSUser
+                user=GSUser(snapshot: snapshot)!
+                newcell.mainDevLabel.text="by "+((user.username=="") ? user.uid : user.username)
+            })
             return newcell
         }
         else if(currentCells[indexPath.row]==1){
