@@ -27,6 +27,11 @@ class PreferencesViewController: UIViewController {
         performSegue(withIdentifier: "prefSegue", sender: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let desti=(segue.destination as! UITabBarController).viewControllers![0] as! BrowseViewController
+        desti.firstLaunch=true
+    }
+    
     func pressSwitch(_ sender: UISwitch) {
         if sender.isOn == true {
             sender.setOn(false, animated: true)

@@ -63,6 +63,8 @@ class SearchViewController: UIViewController,UITableViewDelegate,UITableViewData
                     newcell.mainImageView.image=UIImage(data:data!)
                 }
             })
+        }else{
+            newcell.mainImageView.image=#imageLiteral(resourceName: "icons8-game-controller-50")
         }
         newcell.nameLabel.text=thisgame.gamename
         newcell.descLabel.text=thisgame.gameintro
